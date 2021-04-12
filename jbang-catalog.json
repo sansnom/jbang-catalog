@@ -1,0 +1,12 @@
+{
+  "aliases": {
+    "http-server": {
+      "script-ref": "src/HttpServerJDK.java",
+      "description": "HttpServer to serve files."
+    },
+    "tls-client": {
+      "script-ref": "src/TLSClient.java",
+      "description": "Test TLS connection and build keystore."
+    }
+  }
+}
