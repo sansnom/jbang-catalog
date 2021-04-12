@@ -8,6 +8,7 @@ import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashMap;
 
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
@@ -25,7 +26,7 @@ class HttpServerJDK implements Runnable {
     @Option(names = {"-p", "--port"}, paramLabel = "Listen to port. Default is ${DEFAULT-VALUE}.", defaultValue = "8787")
     private int port;
 
-    @Option(names = {"-h", "--hostname"}, paramLabel = "Listen hostname. Default is ${DEFAULT-VALUE}.", defaultValue = "0.0.0.0")
+    @Option(names = {"-b", "--bind"}, paramLabel = "Listen hostname. Default is ${DEFAULT-VALUE}.", defaultValue = "0.0.0.0")
     private String listenHostName;
 
     @Parameters(index = "0", description = "Will serve file in this directory. Default is ${DEFAULT-VALUE}.", defaultValue = ".")
@@ -42,7 +43,7 @@ class HttpServerJDK implements Runnable {
 
         server.createContext("/", exchange -> {
             Headers requestHeaders = exchange.getRequestHeaders();
-            System.out.printf("Request received [%s]%n", requestHeaders);
+            System.out.printf("Request received [%s]%n", new HashMap<>(requestHeaders));
 
             URI requestURI = exchange.getRequestURI();
             String path = requestURI.getPath().substring(1);
