@@ -42,10 +42,10 @@ class HttpServerJDK implements Runnable {
         serveDirectory = serveDirectory.toAbsolutePath().normalize();
 
         server.createContext("/", exchange -> {
-            Headers requestHeaders = exchange.getRequestHeaders();
-            System.out.printf("Request received [%s]%n", new HashMap<>(requestHeaders));
-
             URI requestURI = exchange.getRequestURI();
+            Headers requestHeaders = exchange.getRequestHeaders();
+            System.out.printf("Request received [%s][%s]%n", requestURI, new HashMap<>(requestHeaders));
+
             String path = requestURI.getPath().substring(1);
             Path filePath = this.serveDirectory.resolve(path);
 

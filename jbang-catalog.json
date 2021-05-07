@@ -7,6 +7,10 @@
     "tls-client": {
       "script-ref": "src/TLSClient.java",
       "description": "Test TLS connection and build keystore."
+    },
+    "keytool": {
+      "script-ref": "src/KeyStoreShow.java",
+      "description": "Display keystore (keytool but less verbose)."
     }
   }
 }
