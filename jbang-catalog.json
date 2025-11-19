@@ -11,6 +11,10 @@
     "keytool": {
       "script-ref": "src/KeyStoreShow.java",
       "description": "Display keystore (keytool but less verbose)."
+    },
+    "id": {
+      "script-ref": "src/Id.java",
+      "description": "Convert ID."
     }
   }
 }
